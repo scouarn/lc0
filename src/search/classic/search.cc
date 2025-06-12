@@ -587,7 +587,7 @@ void Search::SendMovesStats() const REQUIRES(counters_mutex_) {
     for (const auto& line : move_stats) LOGFILE << line;
     for (const auto& edge : root_node_->Edges()) {
         std::cout << "info string "
-                  << edge.GetMove(played_history_.IsBlackToMove()).ToString(true)
+                  << edge.GetMove(played_history_.IsBlackToMove()).ToString(false) // uci_responder_.IsChess960() is private
                   << " " << edge.GetP() << std::endl;
     }
   }
